@@ -1,0 +1,274 @@
+@charset "utf-8";
+
+html {
+    font-size: 14px;
+    color: #000;
+    overflow: -moz-scrollbars-vertical;
+    overflow-y: scroll;
+}
+
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 1000px;
+    margin: 0 auto;
+    background: #fff;
+}
+
+.alignleft {
+    float: left;
+}
+
+.alignright {
+    float: right;
+}
+
+a, a:link, a:visited {
+    color: #0a58b8;
+    text-decoration: none;
+    border-bottom: 1px dotted #0a58b8;
+}
+
+a:hover, a:active, a:focus {
+    background-color: rgba(10, 88, 184, 0.07);
+}
+
+code {
+    background-color: #e7e7e7;
+    border: 1px solid #efefef;
+    overflow: auto;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    padding: 1px;
+    font-size: 12px;
+    font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+}
+
+pre > code {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    display: block;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 6px;
+    line-height: 1.5;
+    text-align:justify;
+    word-break: break-word;
+    white-space: pre-line;
+    overflow-wrap: break-word;
+    -ms-word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+pre {
+    white-space: pre-line;
+    word-wrap: break-word;
+    /*text-align: justify;*/
+    font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+}
+
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+}
+
+/* remove Firefox's dotted outline on textboxes, links, and buttons */
+textarea:focus,
+input:focus {
+    outline: none;
+}
+
+a:focus {
+    outline: none;
+}
+
+button::-moz-focus-inner {
+    border: 0;
+}
+
+div.spacing {
+    margin-top: 20px;
+}
+
+.project-page {
+    width: 1000px;
+    display: block;
+    margin-top: 6px;
+}
+
+.project-page > h1 {
+    font-size: 155%;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.project-page .authors {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.project-page .venue {
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 140%;
+}
+
+.project-page .preview {
+    text-align: left;
+    display: block;
+    font-size: 0;
+    float: right;
+    width: 400px;
+}
+
+.project-page .preview > a {
+    display: block;
+    text-decoration: none;
+    border: 0;
+    padding: 3px;
+}
+
+.project-page .preview img {
+    border: 1px #666 solid;
+    padding: 2px;
+    margin-left: 1px;
+    margin-right: 1px;
+    height: 83px;
+}
+
+.project-page > div.section {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.project-page h2 {
+    font-size: 130%;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.project-page .citing pre {
+    font-family: monospace;
+    background-color: #f6f8fa;
+    width: 1000px;
+    font-size: 95%;
+    border-left: 5px #ccc solid;
+    padding: 9px 9px 9px 20px;
+    margin-bottom: 40px;
+}
+
+.project-page .links > ul li {
+    list-style-type: circle;
+    margin-left: 40px;
+    margin-top: 3px;
+    font-size: 115%;
+}
+
+.project-page .links > ul li span {
+    font-size: 90%;
+    color: #999999;
+}
+
+.project-page .updates > ul li {
+    list-style-type: circle;
+    margin-left: 30px;
+    margin-top: 3px;
+}
+
+.project-page h2 span {
+    font-size: 70%;
+    color: #777;
+    padding-left: 10px;
+}
+
+.project-page h4 span {
+    font-size: 78%;
+    color: #888;
+    padding-left: 4px;
+}
+
+.project-page .overview img {
+}
+
+.project-page .overview ol {
+    counter-reset: list;
+}
+
+.project-page .overview ol > li {
+    list-style: none;
+    position: relative;
+    margin-left: 34px;
+    margin-bottom: 4px;
+}
+
+.project-page .overview ol > li:before {
+    counter-increment: list;
+    content: "(" counter(list, lower-alpha) ") ";
+    position: absolute;
+    left: -2em;
+}
+
+.project-page .video-container {
+    text-align: center;
+}
+
+.project-page .affiliation {
+    text-align: center;
+    height: 40px;
+}
+
+.project-page .affiliation img {
+    height: 100%;
+}
+
+.leftalign {
+    float: left;
+}
+
+.rightalign {
+    float: right;
+}
+
+.project-page .affiliation a {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.project-page .overview img {
+    padding: 3px;
+}
+
+.project-page .institution {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 105%;
+}
+
+.project-page .overview h4 {
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 2px;
+    font-size: 110%;
+}
+
+.project-page div.acknowledgements {
+    display: block;
+    margin-bottom: 44px;
+}
