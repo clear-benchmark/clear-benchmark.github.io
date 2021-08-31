@@ -14,6 +14,48 @@ body {
     padding: 0;
 }
 
+
+
+ul, #myUL {
+  list-style-type: none;
+}
+
+#myUL {
+  margin: 0;
+  padding: 0;
+}
+
+.caret {
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+
+.caret::before {
+  content: "\25B6";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.caret-down::before {
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Safari */'
+  transform: rotate(90deg);  
+}
+
+.nested {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+
+
 .container {
     width: 1000px;
     margin: 0 auto;
@@ -161,7 +203,7 @@ div.spacing {
     margin-bottom: 7px;
 }
 
-.project-page .citing pre {
+.project-page .hierarchy pre {
     font-family: monospace;
     background-color: #f6f8fa;
     width: 1000px;
@@ -272,3 +314,10 @@ div.spacing {
     display: block;
     margin-bottom: 44px;
 }
+
+
+
+
+
+
+
