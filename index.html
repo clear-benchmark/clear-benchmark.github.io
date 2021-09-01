@@ -29,6 +29,18 @@
 
     <hr>
 
+    <div class="authors">
+      <a href="https://linzhiqiu.github.io/">Zhiqiu Lin</a><sup><font color="#A9A9A9">1</font></sup>,
+      <a href="https://www.linkedin.com/in/elvishelvisshi/">Jia Shi</a><sup><font color="#A9A9A9">1</font></sup>,
+      <a href="https://www.cs.cmu.edu/~dpathak/">Deepak Pathak*</a><sup><font color="#A9A9A9">1</font></sup>,
+      <a href="http://www.cs.cmu.edu/~deva/">Deva Ramanan*</a><sup><font color="#A9A9A9">1</font></sup>
+
+    </div>
+
+    <div class="institution">
+      <sup>1</sup>Carnegie Mellon University Robotics Institute
+    </div>
+
     <div class="abstract section">
       <h2>Overview</h2>
       <div style="text-align: center">
@@ -97,73 +109,35 @@
       
     <br>
     </div>
-    <div class=" hierarchy">
+    <div class="class tree">
       <h2>Labeled Data Hierarchy</h2>
-      <p>The tree hierarchy of the data is showing as the following, click on the arrow(s) to open or close the tree branches.</p>
-      <br>
-      <ul id="myUL">
-        <li> -- query_dict.pickle (all labeled data metadata)</li>
-        <li><span class="caret">images</span>
-          <ul class="nested">
-            <li><span class="caret">buckets(X10)</span>
-            <ul class="nested">
-              <li><span class="caret">classes(X11)</span>
-              <ul class="nested">
-                <!-- <li>NEGATIVE(background)</li>
-                <li>computer</li> -->
-                <li><span class="caret">computer</span>
-                  <ul class='nested'>
-                    <li>id_1.png</li>
-                    <li>id_2.png</li>
-                    <li>...</li>
-                  </ul>
-                </li>
-                <li>...</li>
-            </ul>
-          </li>
-            </ul>
-          </li>
-          </ul>
-        </li>
-      </ul>
+      <p>The tree hierarchy of the data is showing as the following</p>
 
-      <script>
-      var toggler = document.getElementsByClassName("caret");
-      var i;
-
-      for (i = 0; i < toggler.length; i++) {
-        toggler[i].addEventListener("click", function() {
-          this.parentElement.querySelector(".nested").classList.toggle("active");
-          this.classList.toggle("caret-down");
-        });
-      }
-      </script>
-      <!-- <pre>.
-            ├── query_dict.pickle
-            │   
-            │── images
-            │     │
-                  ├── bucket_1
-                  │   ├── baseball
-                  │   │   │
-                  │   │   ├── 1.jpg
-                  │   │   ├── 2.jpg
-                  │   │   └── ....
-                  │   │
-                  │   ├── bus
-                  │   ├── dress
-                  │   ├── hockey
-                  │   ├── laptop
-                  │   ├── racing
-                  │   ├── camera
-                  │   ├── soccer
-                  │   ├── cosplay
-                  │   └── NEGATIVE
-                  │
-                  ├── bucket_2
-                  ├── ......
-                  └── bucket_10
-      </pre> -->
+<pre><code>        ├── query_dict.pickle
+        │   
+        │── images
+        │     │
+        │     ├── <span class="hljs-keyword">bucket_1
+</span>        │     │   ├── <span class="hljs-keyword">baseball
+</span>        │     │   │   │
+        │     │   │   ├── <span class="hljs-number">1</span>.<span class="hljs-keyword">jpg
+</span>        │     │   │   ├── <span class="hljs-number">2</span>.<span class="hljs-keyword">jpg
+</span>        │     │   │   └── ....
+        │     │   │
+        │     │   ├── <span class="hljs-keyword">bus
+</span>        │     │   ├── dress
+        │     │   ├── hockey
+        │     │   ├── laptop
+        │     │   ├── racing
+        │     │   ├── camera
+        │     │   ├── soccer
+        │     │   ├── cosplay
+        │     │   └── NEGATIVE
+        │     │
+        │     ├── <span class="hljs-keyword">bucket_2
+</span>        │     ├── ......
+        │     └── <span class="hljs-keyword">bucket_10</span>
+</code></pre>
     </div>
 
     <br>
@@ -195,7 +169,7 @@
 
     <div class="acknowledgements section">
       <h2>Acknowledgements</h2>
-      <p>This research was supported by <a href="https://www.ri.cmu.edu/"><strong>CMU Robotic Institute.</strong></a></p>
+      <p>This research was supported by <a href="https://www.ri.cmu.edu/"><strong>CMU Robotics Institute.</strong></a></p>
     </div>
 
 
