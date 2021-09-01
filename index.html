@@ -35,9 +35,25 @@
       <img src="img/examples.png" alt="examples" style="width:800px;height:400px;">
       </div>
       <p>
-        Existing continual learning (CL) benchmarks, such as Permuted-MNIST and Split-CIFAR, are artificially made and do not generalize to real-world CL applications. We propose CLEAR, the first continual image recognition benchmark dataset with a natural temporal evolution of visual concepts. We argue that temporally-evolving visual concepts offer a more realistic CL scenario with smooth transitions between distributions. Our contributions are twofold: (1) To build CLEAR out of the largest existing public image collection (YFCC100M), we introduce a new low-cost “visio-linguistic-based” dataset curation method by making use of recent zero-shot vision-language models (OpenAI’s CLIP) to dramatically decrease annotation cost, allowing us to create real-world CL datasets that span a decade (2) CLEAR is further post-processed by crowd-sourced validation (Amazon MTurk) to remove misclassified and inappropriate images originally hidden in YFCC100M image collection. The major strengths of CLEAR over prior CL benchmarks include (1) smooth temporal evolution of visual concepts in CLEAR enables a novel and more practical “online” evaluation protocol for continual learning algorithms, which is to “train now and test in the future” (2) CLEAR contains complex real-world imagery (not object-centered, e.g., CIFAR and ImageNet) and is more relevant to real-world applications (3) besides high-quality labeled data, CLEAR offers abundant unlabeled samples for each time period for continual semi-supervised and unsupervised learning.
+        Continual learning (CL) is considered as one of the next big challenges in AI. However, the existing CL benchmarks, e.g.
+        Permuted-MNIST and Split-CIFAR, are artificially designed to be made continual and do not align with or generalize to
+        real-world. In this paper, we introduce CLEAR, the first continual image recognition benchmark dataset with a natural
+        <i>temporal evolution of visual concepts</i> in the real world that spans a <i>decade</i> (2004-2014). We build
+        CLEAR from existing image collection (YFCC100M) by proposing a novel low-cost <i>visio-linguistic dataset curation
+        approach</i>. It involves using pretrained vision-language models (e.g. CLIP) to quickly build high-quality labeled
+        datasets on a tight budget. Finally, we post-process CLEAR via crowd-sourcing to remove errors and even inappropriate
+        images hidden in original YFCC100M. The major strengths of CLEAR over prior CL benchmarks include (1) smooth and
+        realistic temporal evolution of visual concepts with real-world imagery, enabling a more practical "online" (i.e., train
+        on past, test on future) evaluation protocol (2) high-quality labeled data along with abundant unlabeled samples per
+        time period for continual semi-supervised and unsupervised learning. Our extensive experiments reveal that mainstream
+        "offline" evaluation protocols, which train and test on iid data, artificially inflate performance of CL systems,
+        stressing the need for our "online" protocol since the models we train today will always be tested in future. Moreover,
+        we find that state-of-the-arts CL algorithms that only utilize fully-supervised data fall short whereas unsupervised
+        pretraining provides significant boost. Lastly, we introduce a biased reservoir-sampling algorithm that dynamically
+        caches more recent training data, achieving the new state-of-the-arts while still leaving large room for improvement.
       </p>
     </div>
+
 
     <div class="links section">
 <!--      <div class="preview">-->
@@ -58,14 +74,20 @@
 <!--      </div>-->
       <h2>Links</h2>
       <ul>
-        <li><a href="https://drive.google.com/file/d/1xj5DCYr502SlvoF0INCL1n-gbxi0Kr3v/view?usp=sharing"><strong>Download data</strong></a></li>
-        <li>Training code <span>(Coming soon)</span></li>
+        <li><a href="https://drive.google.com/file/d/1xj5DCYr502SlvoF0INCL1n-gbxi0Kr3v/view?usp=sharing"><strong>Download data (labeled portion size = 1GB)</strong></a>: For downloading the cleaned and labeled portion (only) of CLEAR.</li>
+        <li><a href=""><strong>Download 7.8M metadata
+              (labeled + unlabeled portion, coming soon)</strong></a>: For downloading 7.8M YFCC100M image metadata sorted into 11 temporal segments (including URL for image download, upload timestamp, user hashtags, etc.).</li>
+        <li><a href="https://github.com/linzhiqiu/continual-learning/"><strong>Github repository for YFCC100M download and CLIP-based image retrieval</strong></a>: For downloading YFCC100M dataset and performing CLIP-based image retrieval on YFCC100M.</li>
+        <li>Github repository for training and evaluation code in our paper<span>(Coming soon)</span>: For all experiments in our paper.</li>
+        <li><a href="https://avalanche.continualai.org/">Avalanche-based Evaluation Platform</a><span>(We will host our dataset on Avalanche upon paper acceptance)</span>: For future CL researchers to quickly access CLEAR and perform experiments for reproducibility purposes.</li>
+        <li><a href="https://eval.ai">EvalAI Competition Leaderboard</a><span>(Coming soon, we will host our dataset on EvalAI upon paper
+            acceptance)</span>: We are planning to host a competition leaderboard on EvalAI upon paper acceptance. Potential challenge tracks include CLEAR-fully-supervised, CLEAR-unsupervised-pretraining, CLIP-continual-semisupervised, and etc.</li>
         <li>Poster <span>(Coming soon)</span></li>
       </ul>
     </div>
 
-    <div class="Collection Pipeline">
-      <h2>Collection Pipeline </h2>
+    <div class="CLEAR Collection Pipeline">
+      <h2>CLEAR Collection Pipeline </h2>
       <div style="text-align: center">
         <img src="img/flowchart.png" height="300px" style="width:600px;height:350px;margin-right: 46px">
       </div>
@@ -76,20 +98,27 @@
     <br>
     </div>
     <div class=" hierarchy">
-      <h2>Data Hierarchy</h2>
+      <h2>Labeled Data Hierarchy</h2>
       <p>The tree hierarchy of the data is showing as the following, click on the arrow(s) to open or close the tree branches.</p>
       <br>
       <ul id="myUL">
-        <li> -- query_dict.pickle</li>
+        <li> -- query_dict.pickle (all labeled data metadata)</li>
         <li><span class="caret">images</span>
           <ul class="nested">
             <li><span class="caret">buckets(X10)</span>
             <ul class="nested">
               <li><span class="caret">classes(X11)</span>
               <ul class="nested">
-              <li>1.png</li>
-              <li>2.png</li>
-              <li>...</li>
+                <!-- <li>NEGATIVE(background)</li>
+                <li>computer</li> -->
+                <li><span class="caret">computer</span>
+                  <ul class='nested'>
+                    <li>id_1.png</li>
+                    <li>id_2.png</li>
+                    <li>...</li>
+                  </ul>
+                </li>
+                <li>...</li>
             </ul>
           </li>
             </ul>
@@ -138,10 +167,10 @@
     </div>
 
     <br>
-    <div class="Workshop">
-      <h2>Continual LEArning Workshop</h2>
+    <div class="Workshop and Competition Information">
+      <h2>Workshop and Competition Information</h2>
       <p>
-        Workshop on continual learning is on the way...
+        If CLEAR is going to be presented on any CL/vision workshop or will be included as a challenge track, we will attach the information on this website.
       </p>
     </div>
 
