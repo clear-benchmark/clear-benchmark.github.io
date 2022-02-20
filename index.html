@@ -47,23 +47,29 @@
       <div style="text-align: center">
       <img src="img/examples.png" alt="examples" style="width:800px;height:400px;">
       </div>
-      <p>
-        Continual learning (CL) is considered as one of the next big challenges in AI. However, the existing CL benchmarks, e.g.
-        Permuted-MNIST and Split-CIFAR, are artificially designed to be made continual and do not align with or generalize to
-        real-world. In this paper, we introduce CLEAR, the first continual image recognition benchmark dataset with a natural
-        <i>temporal evolution of visual concepts</i> in the real world that spans a <i>decade</i> (2004-2014). We build
-        CLEAR from existing image collection (YFCC100M) by proposing a novel low-cost <i>visio-linguistic dataset curation
-        approach</i>. It involves using pretrained vision-language models (e.g. CLIP) to quickly build high-quality labeled
-        datasets on a tight budget. Finally, we post-process CLEAR via crowd-sourcing to remove errors and even inappropriate
-        images hidden in original YFCC100M. The major strengths of CLEAR over prior CL benchmarks include (1) smooth and
-        realistic temporal evolution of visual concepts with real-world imagery, enabling a more practical "online" (i.e., train
-        on past, test on future) evaluation protocol (2) high-quality labeled data along with abundant unlabeled samples per
-        time period for continual semi-supervised and unsupervised learning. Our extensive experiments reveal that mainstream
-        "offline" evaluation protocols, which train and test on iid data, artificially inflate performance of CL systems,
-        stressing the need for our "online" protocol since the models we train today will always be tested in future. Moreover,
-        we find that state-of-the-arts CL algorithms that only utilize fully-supervised data fall short whereas unsupervised
-        pretraining provides significant boost. Lastly, we introduce a biased reservoir-sampling algorithm that dynamically
-        caches more recent training data, achieving the new state-of-the-arts while still leaving large room for improvement.
+      <p style="text-align: justify">
+        Continual learning (CL) is widely regarded as crucial challenge for lifelong AI.
+        However, existing CL benchmarks, e.g. Permuted-MNIST and Split-CIFAR, make
+        use of artificial temporal variation and do not align with or generalize to the realworld. In this paper, we introduce CLEAR, the first continual image classification
+        benchmark dataset with a natural temporal evolution of visual concepts in the
+        real world that spans a <i> decade</i> (2004-2014). We build CLEAR from existing
+        large-scale image collections (YFCC100M) through a novel and scalable low-cost
+        approach to visio-linguistic dataset curation. Our pipeline makes use of pretrained
+        vision-language models (e.g. CLIP) to interactively build labeled datasets, which
+        are further validated with crowd-sourcing to remove errors and even inappropriate
+        images (hidden in original YFCC100M). The major strength of CLEAR over
+        prior CL benchmarks is the smooth temporal evolution of visual concepts with
+        real-world imagery, including both high-quality labeled data along with abundant
+        unlabeled samples per time period for continual semi-supervised learning. We
+        find that a simple unsupervised pre-training step can already boost state-of-the-art
+        CL algorithms that only utilize fully-supervised data. Our analysis also reveals
+        that mainstream CL evaluation protocols that train and test on iid data artificially
+        inflate performance of CL system. To address this, we propose novel "streaming"
+        protocols for CL that always test on the (near) future. Interestingly, streaming
+        protocols (a) can simplify dataset curation since today’s testset can be repurposed
+        for tomorrow’s trainset and (b) can produce more generalizable models with more
+        accurate estimates of performance since all labeled data from each time-period is
+        used for both training and testing (unlike classic iid train-test splits).
       </p>
     </div>
 
@@ -87,22 +93,26 @@
 <!--      </div>-->
       <h2>Links</h2>
       <ul>
-        <li><a href="https://drive.google.com/file/d/1xj5DCYr502SlvoF0INCL1n-gbxi0Kr3v/view?usp=sharing"><strong>Download data (labeled portion size = 1GB)</strong></a>: For downloading the cleaned and labeled portion (only) of CLEAR.</li>
-        <li><a href="https://drive.google.com/drive/folders/1obF4we5R2C70C6KBFAgNKv9yf9WnV4Qa"><strong>Download 7.8M metadata
-              (labeled + unlabeled portion)</strong></a>: For downloading 7.8M YFCC100M image metadata sorted into 11 temporal buckets (including URL for image download, upload timestamp, user hashtags, etc.).</li>
+        <li><a href="https://arxiv.org/abs/2201.06289"><strong>Link to our paper</strong></a>: (2021 NeurIPS Datasets and Benchmarks Track accepted)</li>
+        
+        <li><a href="https://drive.google.com/drive/folders/1subfTCchBR8BWIAoxo7-0k2QgdYjUFUS?usp=sharing"><strong>CLEAR10: Download labeled & unlabeled data & meatdata 
+              (labeled + unlabeled portion)</strong></a>: For downloading both the labeled and unlabled data, or 7.8M YFCC100M image metadata sorted into 11 temporal buckets (including URL for image download, upload timestamp, user hashtags, etc.).</li>
         <li><a href="https://github.com/linzhiqiu/continual-learning/"><strong>Github repository for YFCC100M download and CLIP-based image retrieval</strong></a>: For downloading YFCC100M dataset and performing CLIP-based image retrieval on YFCC100M.</li>
         <li><a href="https://github.com/ElvishElvis/Continual-Learning"><strong>Github repository for training and evaluation code in our paper</strong></a>: For all experiments in our paper.</li>
-        <li><a href="https://avalanche.continualai.org/">Avalanche-based Evaluation Platform</a><span>(We will host our dataset on Avalanche upon paper acceptance)</span>: For future CL researchers to quickly access CLEAR and perform experiments for reproducibility purposes.</li>
+        <li><strong>CLEAR100</strong><span></span>: Coming soon on CVPR 2022 workshop challenge</li>
+<!--         <li><a href="https://avalanche.continualai.org/">Avalanche-based Evaluation Platform</a><span>(We will host our dataset on Avalanche upon paper acceptance)</span>: For future CL researchers to quickly access CLEAR and perform experiments for reproducibility purposes.</li>
         <li><a href="https://eval.ai">EvalAI Competition Leaderboard</a><span>(Coming soon, we will host our dataset on EvalAI upon paper
-            acceptance)</span>: We are planning to host a competition leaderboard on EvalAI upon paper acceptance. Potential challenge tracks include CLEAR-fully-supervised, CLEAR-unsupervised-pretraining, CLIP-continual-semisupervised, and etc.</li>
-        <li>Poster <span>(Coming soon)</span></li>
+            acceptance)</span>: We are planning to host a competition leaderboard on EvalAI upon paper acceptance. Potential challenge tracks include CLEAR-fully-supervised, CLEAR-unsupervised-pretraining, CLIP-continual-semisupervised, and etc.</li> -->
+        <!-- <li>Poster <span></span></li> -->
       </ul>
     </div>
 
     <div class="CLEAR Collection Pipeline">
       <h2>CLEAR Collection Pipeline </h2>
       <div style="text-align: center">
-        <img src="img/flowchart.png" height="300px" style="width:600px;height:350px;margin-right: 46px">
+        <img src="img/zhiqiu_clip.png" height="200px" style="width:770px;height:200;margin-right: 46px">
+        <img src="img/streaming_unsupervised.png" height="100px" style="width:450px;height:50;margin-right: 46px">
+        <img src="img/zhiqiu_streaming.png" height="100px" style="width:450px;height:50;margin-right: 46px">
       </div>
       <p>
         Since it is non-trivial to download the entire YFCC100M dataset (over 10TB), we first download the metadata files (50GB) and download a random subset of 7.8M images from it. Then we use the upload time to recreate the temporal stream and split them into 11 segments of 0.7M images. Given a temporal segment of images and a list of queries (found by text-prompt engineering in order to effectively retrieve the visual concepts of interest), we use a pre-trained vision-language model CLIP to extract their respective L2-normalized image and query features. We can measure how much an image is aligned to a particular query by computing the cosine similiarity score (e.g., dot product) between the two features. For each query, we can rank all the images and only retrieve the ones with highest scores. Finally, we hire MTurk workers to verify the retrieved images for each class and remove sensitive images hidden in original YFCC100M collection.
@@ -114,31 +124,51 @@
       <h2>Labeled Data Hierarchy</h2>
       <p>The tree hierarchy of the data is showing as the following</p>
 
-<pre><code>        ├── query_dict.pickle
-        │   
-        │── images
-        │     │
-        │     ├── <span class="hljs-keyword">bucket_1
-</span>        │     │   ├── <span class="hljs-keyword">baseball
-</span>        │     │   │   │
-        │     │   │   ├── <span class="hljs-number">1</span>.<span class="hljs-keyword">jpg
-</span>        │     │   │   ├── <span class="hljs-number">2</span>.<span class="hljs-keyword">jpg
-</span>        │     │   │   └── ....
-        │     │   │
-        │     │   ├── <span class="hljs-keyword">bus
-</span>        │     │   ├── dress
-        │     │   ├── hockey
-        │     │   ├── laptop
-        │     │   ├── racing
-        │     │   ├── camera
-        │     │   ├── soccer
-        │     │   ├── cosplay
-        │     │   ├── <span class="hljs-keyword">sweater
-</span>        │     │   └── NEGATIVE
-        │     │
-        │     ├── <span class="hljs-keyword">bucket_2
-</span>        │     ├── ......
-        │     └── <span class="hljs-keyword">bucket_10</span>
+<pre>
+<code>root/
+|   class_names.txt (each line is a class name)
+|   labeled_metadata.json (with paths to labeled images' metadata)
+|   all_metadata.json (with paths to all images' metadata)
+|   download_all_images.py (for downloading unlabeled images)
+└───labeled_images
+|   └───1
+|   |   └───computer
+|   |   |   |   235821044.jpg
+|   |   |   |   ...
+|   |   └───camera
+|   |   |   |   269400202.jpg
+|   |   |   |   ...
+|   |   └───...
+|   └───2
+|   └───...
+└───labeled_metadata
+|   └───1
+|   |   |   computer.json (dict: key is flickr ID, value is metadata)
+|   |   |   camera.json
+|   |   |   ...
+|   └───2
+|   └───...
+└───all_metadata
+│   │   0.json
+|   |   1.json
+|   |   ...
+└───features
+|   └───moco_b0
+|   |   |   features.json (with paths to labeled images' features files)
+|   |   |   state_dict.pth.tar (a copy of the state_dict file)
+|   |   └───1
+|   |   |   |   computer.pth (dict: key is flickr ID, value is torch tensor)
+|   |   |   |   camera.pth
+|   |   |   |   ...
+|   |   └───2
+|   |   |   |   ...
+|   |   └───...
+|   └───moco_imagenet
+|   |   └───...
+|   └───byol_imagenet
+|   |   └───...
+|   └───imagenet
+|   |   └───...
 </code></pre>
     </div>
 
@@ -146,21 +176,19 @@
     <div class="Workshop and Competition Information">
       <h2>Workshop and Competition Information</h2>
       <p>
-        If CLEAR is going to be presented on any CL/vision workshop or will be included as a challenge track, we will attach the information on this website.
-      </p>
+        CLEAR is going to be presented on <a href="http://www.cs.cmu.edu/~shuk/vplow.html"><strong> Visual Perception and Learning in an Open World workshop </strong></a><b>(CVPR2022)</b> and will be included as a challenge track.</p>
     </div>
 
-    <!-- <div class="citing section">
+    <div class="citing section">
       <h2>Citing this work</h2>
       <p>If you find this work useful in your research, please consider citing:</p>
-      <pre>@article{zhao2021camera,
-            title={Camera Pose Matters: Improving Depth Prediction by Mitigating Pose Distribution Bias},
-            author={Zhao, Yunhan and Kong, Shu and Fowlkes, Charless},
-            journal={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-            year={2021}
-            }
+      <pre>@inproceedings{lin2021clear,
+          title={The CLEAR Benchmark: Continual LEArning on Real-World Imagery},
+          author={Lin, Zhiqiu and Shi, Jia and Pathak, Deepak and Ramanan, Deva},
+          booktitle={Thirty-fifth Conference on Neural Information Processing Systems Datasets and Benchmarks Track},
+          year={2021}}
       </pre>
-    </div> -->
+    </div>
     <br>
     <div class="License">
       <h2>License</h2>
