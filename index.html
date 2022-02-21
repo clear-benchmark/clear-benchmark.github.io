@@ -109,8 +109,6 @@
       <h2>CLEAR Collection Pipeline </h2>
       <div style="text-align: center">
         <img src="img/zhiqiu_clip.png" height="200px" style="width:770px;height:200;margin-right: 46px">
-        <img src="img/streaming_unsupervised.png" height="100px" style="width:450px;height:50;margin-right: 46px">
-        <img src="img/zhiqiu_streaming.png" height="100px" style="width:450px;height:50;margin-right: 46px">
       </div>
       <p>
         Since it is non-trivial to download the entire YFCC100M dataset (over 10TB), we first download the metadata files (50GB) and download a random subset of 7.8M images from it. Then we use the upload time to recreate the temporal stream and split them into 11 segments of 0.7M images. Given a temporal segment of images and a list of queries (found by text-prompt engineering in order to effectively retrieve the visual concepts of interest), we use a pre-trained vision-language model CLIP to extract their respective L2-normalized image and query features. We can measure how much an image is aligned to a particular query by computing the cosine similiarity score (e.g., dot product) between the two features. For each query, we can rank all the images and only retrieve the ones with highest scores. Finally, we hire MTurk workers to verify the retrieved images for each class and remove sensitive images hidden in original YFCC100M collection.
@@ -118,6 +116,46 @@
       
     <br>
     </div>
+
+
+      <div class="IID vs Streaming Protocols for CL">
+      <h2>IID vs Streaming Protocols for CL</h2>
+      <div style="text-align: center">
+        <img src="img/zhiqiu_streaming.png" height="170px" style="width:750px;height:50;margin-right: 46px">
+      </div>
+      <p>
+        Traditional CL protocols (left) split incoming data buckets
+        into a <b>train/test split</b>, typically 70/30%. However, this may overestimate performance since the train and test
+        data are drawn from the same iid distribution, ignoring the train-test domain gap. We advocate a streaming
+        protocol (right) where one must always evaluate on near-future data. This allows us to repurpose today’s testset
+        as tomorrow’s trainset, increasing the total amount of recent data available for both training and testing. Note
+        that the streaming protocol naturally allows for asynchronous training and testing; by the end of year 2006, one
+        can train a model on data up to 2006, but needs additional data from 2007 to test it.
+      </p>
+      
+    <br>
+    </div>
+
+
+    <div class="Streaming Protocols for Continual Supervised vs. Un-/Semi-supervised Learning">
+      <h2>Streaming Protocols for Continual Supervised vs. Un-/Semi-supervised Learning</h2>
+      <div style="text-align: center">
+        <img src="img/streaming_unsupervised.png" height="150px" style="width:800px;height:50;margin-right: 46px">
+      </div>
+      <p>
+        We compare streaming protocols for continual supervised (left) and un-/semi-supervised learning (right). In real world,
+        most incoming data will not be labeled due to the annotation cost; it is more natural to assume a small labeled
+        subset along with large-scale unlabeled samples per time period. In this work, we achieve great performance
+        boosts by only utilizing unlabeled samples in the first time period (bucket 0
+        th) for a self-supervised pre-training
+        step. Therefore, we encourage future works to embrace unlabeled samples in later buckets for continual
+        semi-supervised learning.
+      </p>
+      
+    <br>
+    </div>
+
+
     <div class="class tree">
       <h2>Labeled Data Hierarchy</h2>
       <p>The tree hierarchy of the data is showing as the following</p>
