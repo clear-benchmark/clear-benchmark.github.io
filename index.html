@@ -95,7 +95,7 @@
         <li><a href="https://arxiv.org/abs/2201.06289"><strong>Link to paper</strong></a>: (NeurIPS 2021 Datasets and Benchmarks Track)</li>
         
         <li><a href="https://drive.google.com/drive/folders/1subfTCchBR8BWIAoxo7-0k2QgdYjUFUS?usp=sharing"><strong>CLEAR: Download labeled & unlabeled data & metadata 
-              (labeled + unlabeled portion)</strong></a>: For downloading both the labeled and unlabled data, or 7.8M YFCC100M image metadata sorted into 11 temporal buckets (including URL for image download, upload timestamp, user hashtags, etc.).</li>
+              (labeled + unlabeled portion)</strong></a>: For downloading both the labeled and unlabled data, or 7.8M YFCC100M image metadata sorted into 11 temporal buckets (including URL for image download, upload timestamp, user hashtags, etc.). <a href="./data_hierarchy/index.html"><strong>Labeled Data Hierarchy</strong></a> are shown here.</li>
         <li><a href="https://github.com/linzhiqiu/continual-learning/"><strong>Github repository for dataset curation</strong></a>: For downloading YFCC100M, visio-linguistic dataset curation via CLIP, and MoCo pre-training on unlabeled images.</li>
         <li><a href="https://github.com/ElvishElvis/Continual-Learning"><strong>Github repository for training and evaluation code in our paper</strong></a>: For all classification experiments in our paper.</li>
         <li><strong>CLEAR100</strong><span></span>: We are expanding CLEAR to 100 classes with more labeled and unlabeled images; it will soon appear on the upcoming CVPR 2022 workshop challenge</li>
@@ -155,60 +155,6 @@
     <br>
     </div>
 
-
-    <div class="class tree">
-      <h2>Labeled Data Hierarchy</h2>
-      <p>The tree hierarchy of the data is showing as the following</p>
-
-<pre>
-<code>root/
-|   class_names.txt (each line is a class name)
-|   labeled_metadata.json (with paths to labeled images' metadata)
-|   all_metadata.json (with paths to all images' metadata)
-|   download_all_images.py (for downloading unlabeled images)
-└───labeled_images
-|   └───1
-|   |   └───computer
-|   |   |   |   235821044.jpg
-|   |   |   |   ...
-|   |   └───camera
-|   |   |   |   269400202.jpg
-|   |   |   |   ...
-|   |   └───...
-|   └───2
-|   └───...
-└───labeled_metadata
-|   └───1
-|   |   |   computer.json (dict: key is flickr ID, value is metadata)
-|   |   |   camera.json
-|   |   |   ...
-|   └───2
-|   └───...
-└───all_metadata
-│   │   0.json
-|   |   1.json
-|   |   ...
-└───features
-|   └───moco_b0
-|   |   |   features.json (with paths to labeled images' features files)
-|   |   |   state_dict.pth.tar (a copy of the state_dict file)
-|   |   └───1
-|   |   |   |   computer.pth (dict: key is flickr ID, value is torch tensor)
-|   |   |   |   camera.pth
-|   |   |   |   ...
-|   |   └───2
-|   |   |   |   ...
-|   |   └───...
-|   └───moco_imagenet
-|   |   └───...
-|   └───byol_imagenet
-|   |   └───...
-|   └───imagenet
-|   |   └───...
-</code></pre>
-    </div>
-
-    <br>
     <div class="Workshop and Competition Information">
       <h2>Workshop and Competition Information</h2>
       <p>

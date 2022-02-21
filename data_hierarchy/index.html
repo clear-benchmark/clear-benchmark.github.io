@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="keywords" content="computer vision, machine learning, ML datasets and benchmark, continual learning, image recognition, online continual learning"/>
+  <title>The CLEAR Benchmark: Continual LEArning on Real-World Imagery
+</title>
+
+  <link href="../css/normalize.css" rel="stylesheet" type="text/css"/>
+  <link href="../css/reset.css" rel="stylesheet" type="text/css"/>
+  <link href="../css/style.css" rel="stylesheet" type="text/css"/>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+  <div class="project-page">
+
+    <div class="affiliation">
+      <a href="https://www.ri.cmu.edu/"><img class="leftalign" src="../img/cmu_03.png"></a>
+    </div>
+
+    <hr>
+    <h1>
+      <i>The CLEAR Benchmark:</i><br> Continual LEArning on Real-World Imagery</br>
+    </h1>
+
+    <hr>
+
+    <div class="authors">
+      <a href="https://linzhiqiu.github.io/">Zhiqiu Lin</a><sup><font color="#A9A9A9">1</font></sup>,
+      <a href="https://www.linkedin.com/in/elvishelvisshi/">Jia Shi</a><sup><font color="#A9A9A9">1</font></sup>,
+      <a href="https://www.cs.cmu.edu/~dpathak/">Deepak Pathak*</a><sup><font color="#A9A9A9">1</font></sup>,
+      <a href="http://www.cs.cmu.edu/~deva/">Deva Ramanan*</a><sup><font color="#A9A9A9">1,2</font></sup>
+
+    </div>
+
+    <div class="institution">
+      <sup>1</sup>Carnegie Mellon University 
+      <sup>2</sup>Argo AI
+    </div>
+
+
+    <div class="class tree">
+      <h2>Labeled Data Hierarchy</h2>
+      <p>The tree hierarchy of the data is showing as the following</p>
+
+<pre>
+<code>root/
+|   class_names.txt (each line is a class name)
+|   labeled_metadata.json (with paths to labeled images' metadata)
+|   all_metadata.json (with paths to all images' metadata)
+|   download_all_images.py (for downloading unlabeled images)
+└───labeled_images
+|   └───1
+|   |   └───computer
+|   |   |   |   235821044.jpg
+|   |   |   |   ...
+|   |   └───camera
+|   |   |   |   269400202.jpg
+|   |   |   |   ...
+|   |   └───...
+|   └───2
+|   └───...
+└───labeled_metadata
+|   └───1
+|   |   |   computer.json (dict: key is flickr ID, value is metadata)
+|   |   |   camera.json
+|   |   |   ...
+|   └───2
+|   └───...
+└───all_metadata
+│   │   0.json
+|   |   1.json
+|   |   ...
+└───features
+|   └───moco_b0
+|   |   |   features.json (with paths to labeled images' features files)
+|   |   |   state_dict.pth.tar (a copy of the state_dict file)
+|   |   └───1
+|   |   |   |   computer.pth (dict: key is flickr ID, value is torch tensor)
+|   |   |   |   camera.pth
+|   |   |   |   ...
+|   |   └───2
+|   |   |   |   ...
+|   |   └───...
+|   └───moco_imagenet
+|   |   └───...
+|   └───byol_imagenet
+|   |   └───...
+|   └───imagenet
+|   |   └───...
+</code></pre>
+    </div>
+
+      
+
+  </div>
+</div>
+</body>
+</html>
