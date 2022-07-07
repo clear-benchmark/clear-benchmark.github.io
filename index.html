@@ -1,194 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="keywords" content="computer vision, machine learning, ML datasets and benchmark, continual learning, image recognition, online continual learning"/>
+  <meta name="keywords"
+    content="computer vision, machine learning, ML datasets and benchmark, continual learning, image recognition, online continual learning" />
   <title>The CLEAR Benchmark: Continual LEArning on Real-World Imagery
-</title>
+  </title>
 
-  <link href="css/normalize.css" rel="stylesheet" type="text/css"/>
-  <link href="css/reset.css" rel="stylesheet" type="text/css"/>
-  <link href="css/style.css" rel="stylesheet" type="text/css"/>
+  <link href="css/normalize.css" rel="stylesheet" type="text/css" />
+  <link href="css/reset.css" rel="stylesheet" type="text/css" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </head>
+
 <body>
-<div class="container">
-  <div class="project-page">
+  <div class="container">
+    <div class="project-page">
 
-    <div class="affiliation">
-      <a href="https://www.ri.cmu.edu/"><img class="leftalign" src="img/cmu_03.png"></a>
-    </div>
-
-    <hr>
-    <h1>
-      <i>The CLEAR Benchmark:</i><br> Continual LEArning on Real-World Imagery</br>
-    </h1>
-
-    <hr>
-
-    <div class="authors">
-      <a href="https://linzhiqiu.github.io/">Zhiqiu Lin</a><sup><font color="#A9A9A9">1</font></sup>,
-      <a href="https://www.linkedin.com/in/elvishelvisshi/">Jia Shi</a><sup><font color="#A9A9A9">1</font></sup>,
-      <a href="https://www.cs.cmu.edu/~dpathak/">Deepak Pathak*</a><sup><font color="#A9A9A9">1</font></sup>,
-      <a href="http://www.cs.cmu.edu/~deva/">Deva Ramanan*</a><sup><font color="#A9A9A9">1,2</font></sup>
-
-    </div>
-
-    <div class="institution">
-      <sup>1</sup>Carnegie Mellon University 
-      <sup>2</sup>Argo AI
-    </div>
-
-    <div class="abstract section">
-      <h2>Overview</h2>
-      <div style="text-align: center">
-      <img src="img/examples_new.png" alt="examples" style="width:800px;height:400px;">
+      <div class="affiliation">
+        <a href="https://www.ri.cmu.edu/"><img class="leftalign" src="img/cmu_03.png"></a>
       </div>
-      <p style="text-align: justify">
-        Continual learning (CL) is widely regarded as crucial challenge for lifelong AI.
-        However, existing CL benchmarks, e.g. Permuted-MNIST and Split-CIFAR, make
-        use of artificial temporal variation and do not align with or generalize to the real world. In this paper, we introduce CLEAR, the first continual image classification
-        benchmark dataset with a natural temporal evolution of visual concepts in the
-        real world that spans a <i> decade</i> (2004-2014). We build CLEAR from existing
-        large-scale image collections (YFCC100M) through a novel and scalable low-cost
-        approach to visio-linguistic dataset curation. Our pipeline makes use of pretrained
-        vision-language models (e.g. CLIP) to interactively build labeled datasets, which
-        are further validated with crowd-sourcing to remove errors and even inappropriate
-        images (hidden in original YFCC100M). The major strength of CLEAR over
-        prior CL benchmarks is the smooth temporal evolution of visual concepts with
-        real-world imagery, including both high-quality labeled data along with abundant
-        unlabeled samples per time period for continual semi-supervised learning. We
-        find that a simple unsupervised pre-training step can already boost state-of-the-art
-        CL algorithms that only utilize fully-supervised data. Our analysis also reveals
-        that mainstream CL evaluation protocols that train and test on iid data artificially
-        inflate performance of CL system. To address this, we propose novel "streaming"
-        protocols for CL that always test on the (near) future. Interestingly, streaming
-        protocols (a) can simplify dataset curation since today’s testset can be repurposed
-        for tomorrow’s trainset and (b) can produce more generalizable models with more
-        accurate estimates of performance since all labeled data from each time-period is
-        used for both training and testing (unlike classic iid train-test splits).
-      </p>
-    </div>
 
+      <hr>
+      <h1>
+        <i>The CLEAR Benchmark:</i><br> Continual LEArning on Real-World Imagery</br>
+      </h1>
 
-    <div class="links section">
-<!--      <div class="preview">-->
-<!--        <a href="">-->
-<!--          <img src="preview/000.png" alt="page 1">-->
-<!--          <img src="preview/001.png" alt="page 2">-->
-<!--          <img src="preview/002.png" alt="page 3">-->
-<!--          <img src="preview/003.png" alt="page 4">-->
-<!--          <img src="preview/004.png" alt="page 5">-->
-<!--          <img src="preview/005.png" alt="page 6">-->
-<!--          <img src="preview/006.png" alt="page 7">-->
-<!--          <img src="preview/007.png" alt="page 8">-->
-<!--          <img src="preview/011.png" alt="page 12">-->
-<!--          <img src="preview/012.png" alt="page 13">-->
-<!--          <img src="preview/013.png" alt="page 14">-->
-<!--          <img src="preview/014.png" alt="page 15">-->
-<!--        </a>-->
-<!--      </div>-->
-      <h2>Links</h2>
-      <ul>
-        <li><a href="https://arxiv.org/abs/2201.06289"><strong>Link to paper</strong></a>: (NeurIPS 2021 Datasets and Benchmarks Track)</li>
-        
-        <li><a href="https://drive.google.com/drive/folders/1subfTCchBR8BWIAoxo7-0k2QgdYjUFUS?usp=sharing"><strong>CLEAR10 Google Drive Download link</strong></a>: For downloading both the labeled and unlabeled data, or 7.8M YFCC100M image metadata(labeled + unlabeled portion) sorted into 11 temporal buckets (including URL for image download, upload timestamp, user hashtags, etc.). <a href="https://drive.google.com/file/d/1CIPrYz6ZVe545F8-IV1iDCAWVzLkgzEZ/view?usp=sharing"><strong>Zipped version data |</strong></a><a href="./data_hierarchy/index.html"><strong> Labeled Data Hierarchy</strong></a></li>
-        <li><a href="https://github.com/ElvishElvis/CLEAR-Continual_Learning_Benchmark/blob/master/download.sh"><strong>CLEAR10/100 S3 Download script</strong></a>: Download script of CLEAR10/100 labeled data with S3 bucket</li>
-        <li><a href="https://github.com/linzhiqiu/continual-learning/"><strong>Github repository for dataset curation</strong></a>: For downloading YFCC100M, visio-linguistic dataset curation via CLIP, and MoCo pre-training on unlabeled images.</li>
-        <li><a href="https://github.com/ElvishElvis/Continual-Learning"><strong>Github repository for training and evaluation code in our paper</strong></a>: For all classification experiments in our paper.</li>
-        <li><a href="https://www.aicrowd.com/challenges/cvpr-2022-clear-challenge"><strong>CLEAR100</strong></a><span></span>: We expanded CLEAR to 100 classes with more labeled and unlabeled images; it is now on our CVPR 2022 workshop challenge site. We will release its full version with unlabeled data after the workshop ends.</li>
-        <li><a href="https://github.com/ContinualAI/avalanche/blob/master/examples/clear.py"><strong> Benchmark script in avalanche</strong></a><span></span>: For CL researchers to quickly access CLEAR and perform experiments for reproducibility, we have include both CLEAR10/100 in the offcial avalanche codebase for dataloading and evaluation purpose</li>
-<!--         <li><a href="https://eval.ai">CodaLab Competition Leaderboard</a><span>(Coming soon)</span>: We are planning to host a competition leaderboard on CodaLab. Potential challenge tracks include CLEAR-fully-supervised, CLEAR-unsupervised-pretraining, CLIP-continual-semisupervised, and etc.</li> -->
-        <!-- <li>Poster <span></span></li> -->
-      </ul>
-    </div>
+      <hr>
 
-    <div class="CLEAR Collection Pipeline">
-      <h2>CLEAR Collection Pipeline </h2>
-      <div style="text-align: center">
-        <img src="img/zhiqiu_clip.png" height="200px" style="width:770px;height:200;margin-right: 46px">
+      <div class="authors">
+        <a href="https://linzhiqiu.github.io/">Zhiqiu Lin</a><sup>
+          <font color="#A9A9A9">1</font>
+        </sup>,
+        <a href="https://www.linkedin.com/in/elvishelvisshi/">Jia Shi</a><sup>
+          <font color="#A9A9A9">1</font>
+        </sup>,
+        <a href="https://www.cs.cmu.edu/~dpathak/">Deepak Pathak*</a><sup>
+          <font color="#A9A9A9">1</font>
+        </sup>,
+        <a href="http://www.cs.cmu.edu/~deva/">Deva Ramanan*</a><sup>
+          <font color="#A9A9A9">1,2</font>
+        </sup>
+
       </div>
-      <p>
-        Since it is non-trivial to download the entire YFCC100M dataset (over 10TB), we first download the metadata files (50GB) and download a random subset of 7.8M images from it. Then we use the upload time to recreate the temporal stream and split them into 11 segments of 0.7M images. Given a temporal segment of images and a list of queries (found by text-prompt engineering in order to effectively retrieve the visual concepts of interest), we use a pre-trained vision-language model CLIP to extract their respective L2-normalized image and query features. We can measure how much an image is aligned to a particular query by computing the cosine similiarity score (e.g., dot product) between the two features. For each query, we can rank all the images and only retrieve the ones with highest scores. Finally, we hire MTurk workers to verify the retrieved images for each class and remove sensitive images hidden in original YFCC100M collection.
-      </p>
-      
-    <br>
-    </div>
+
+      <div class="institution">
+        <sup>1</sup>Carnegie Mellon University
+        <sup>2</sup>Argo AI
+      </div>
+
+      <div class="abstract section">
+        <h2><a href="https://linzhiqiu.gitbook.io/the-clear-benchmark/">(New!) Wikipedia page for comprehensive
+            documentation of CLEAR-10/CLEAR-100</a></h2>
+        <div style="text-align: center">
+          <a href="https://linzhiqiu.gitbook.io/the-clear-benchmark/">
+            <img src="img/banner_white.png" alt="CLEAR wiki" style="width:576px;height:200px;">
+          </a>
+        </div>
+        <p style="text-align: justify">
+          Please check out our new wikipedia page for full documentation on CLEAR-10 and CLEAR-100 (released in July
+          2022).
+          </br>
+          It comes with download links to the train set and (newly released) test set of CLEAR-10 and CLEAR-100, as well
+          as <a href="https://linzhiqiu.github.io/papers/clear/clear_cvpr.pdf">summary of the 1st CLEAR
+            challenge</a> hosted on <a href="https://www.cs.cmu.edu/~shuk/vplow.html">CVPR'22 Open World Vision
+            Workshop</a> and <a href="https://www.aicrowd.com/challenges/cvpr-2022-clear-challenge">AICrowd</a>.
+          </br>
+          </br>
+          This site is preserved as a presentation of our NeurIPS'21 paper on <a
+            href="https://arxiv.org/abs/2201.06289">The CLEAR Benchmark: Continual LEArning on Real-World Imagery</a>.
+        </p>
+      </div>
+
+      <div class="abstract section">
+        <h2>Overview of CLEAR Benchmark</h2>
+        <div style="text-align: center">
+          <img src="img/examples_new.png" alt="examples" style="width:800px;height:400px;">
+        </div>
+        <p style="text-align: justify">
+          Continual learning (CL) is widely regarded as crucial challenge for lifelong AI.
+          However, existing CL benchmarks, e.g. Permuted-MNIST and Split-CIFAR, make
+          use of artificial temporal variation and do not align with or generalize to the real-world. In this paper, we
+          introduce CLEAR, the first continual image classification
+          benchmark dataset with a natural temporal evolution of visual concepts in the
+          real world that spans a <i> decade</i> (2004-2014). We build CLEAR from existing
+          large-scale image collections (YFCC100M) through a novel and scalable low-cost
+          approach to visio-linguistic dataset curation. Our pipeline makes use of pretrained
+          vision-language models (e.g. CLIP) to interactively build labeled datasets, which
+          are further validated with crowd-sourcing to remove errors and even inappropriate
+          images (hidden in original YFCC100M). The major strength of CLEAR over
+          prior CL benchmarks is the smooth temporal evolution of visual concepts with
+          real-world imagery, including both high-quality labeled data along with abundant
+          unlabeled samples per time period for continual semi-supervised learning. We
+          find that a simple unsupervised pre-training step can already boost state-of-the-art
+          CL algorithms that only utilize fully-supervised data. Our analysis also reveals
+          that mainstream CL evaluation protocols that train and test on iid data artificially
+          inflate performance of CL system. To address this, we propose novel "streaming"
+          protocols for CL that always test on the (near) future. Interestingly, streaming
+          protocols (a) can simplify dataset curation since today’s testset can be repurposed
+          for tomorrow’s trainset and (b) can produce more generalizable models with more
+          accurate estimates of performance since all labeled data from each time-period is
+          used for both training and testing (unlike classic iid train-test splits).
+        </p>
+      </div>
+
+
+      <div class="links section">
+        <!--      <div class="preview">-->
+        <!--        <a href="">-->
+        <!--          <img src="preview/000.png" alt="page 1">-->
+        <!--          <img src="preview/001.png" alt="page 2">-->
+        <!--          <img src="preview/002.png" alt="page 3">-->
+        <!--          <img src="preview/003.png" alt="page 4">-->
+        <!--          <img src="preview/004.png" alt="page 5">-->
+        <!--          <img src="preview/005.png" alt="page 6">-->
+        <!--          <img src="preview/006.png" alt="page 7">-->
+        <!--          <img src="preview/007.png" alt="page 8">-->
+        <!--          <img src="preview/011.png" alt="page 12">-->
+        <!--          <img src="preview/012.png" alt="page 13">-->
+        <!--          <img src="preview/013.png" alt="page 14">-->
+        <!--          <img src="preview/014.png" alt="page 15">-->
+        <!--        </a>-->
+        <!--      </div>-->
+        <h2>Useful Links</h2>
+        <ul>
+          <li><a href="https://arxiv.org/abs/2201.06289"><strong>Arxiv paper (NeurIPS 2021 Datasets and Benchmarks
+                Track)</strong></a></li>
+          <li><strong>CLEAR-10 links:</strong>
+            <ul>
+              <li><a href="https://clear-challenge.s3.us-east-2.amazonaws.com/CLEAR-10-train-image-only.zip"><strong>CLEAR-10
+                    Trainset (1GB)</strong></a></li>
+              <li><a href="https://clear-challenge.s3.us-east-2.amazonaws.com/CLEAR-10-test.zip"><strong>CLEAR-10
+                    Testset (200MB)</strong></a></li>
+              <li><a href="https://clear-challenge.s3.us-east-2.amazonaws.com/CLEAR-10-train.zip"><strong>CLEAR-10
+                    Trainset + Unlabeled Metadata (3GB)</strong></a></li>
+            </ul>
+          </li>
+          <li><strong>CLEAR-100 links:</strong>
+            <ul>
+              <li><a href="https://clear-challenge.s3.us-east-2.amazonaws.com/CLEAR-100-train-image-only.zip"><strong>CLEAR-100
+                    Trainset (3GB)</strong></a></li>
+              <li><a href="https://clear-challenge.s3.us-east-2.amazonaws.com/CLEAR-100-test.zip"><strong>CLEAR-100
+                    Testset (1.6GB)</strong></a></li>
+              <li><a href="https://clear-challenge.s3.us-east-2.amazonaws.com/CLEAR-100-train.zip"><strong>CLEAR-100
+                    Trainset + Unlabeled Metadata (13GB)</strong></a></li>
+            </ul>
+          </li>
+          <li><a href="https://www.aicrowd.com/challenges/cvpr-2022-clear-challenge"><strong>AICrowd platform for 1st
+                CLEAR Challenge hosted on CVPR 2022</strong></a></li>
+          <li><a href="https://github.com/ContinualAI/avalanche/blob/master/examples/clear.py"><strong>Avalanche
+                integration for CLEAR-10/CLEAR-100 (sample training script)</strong></a><span></span></li>
+          <li><a href="https://github.com/linzhiqiu/continual-learning/"><strong>Github repository for dataset curation
+                (YFCC100M download & CLIP-based retreival & MoCo pre-training)</strong></a></li>
+          <li><a href="https://github.com/ElvishElvis/Continual-Learning"><strong>Github repository for training and
+                evaluation code in NeurIPS'21 paper</strong></a></li>
+          <li><a href="https://drive.google.com/drive/folders/1subfTCchBR8BWIAoxo7-0k2QgdYjUFUS?usp=sharing"><strong>CLEAR-10
+                (old google drive link)</strong></a> | <a
+              href="https://drive.google.com/file/d/1CIPrYz6ZVe545F8-IV1iDCAWVzLkgzEZ/view?usp=sharing"><strong>Zipped
+                version</strong></a> | <a href="./data_hierarchy/index.html"><strong> Folder structure
+                explained</strong></a></li>
+        </ul>
+      </div>
+
+      <div class="CLEAR Collection Pipeline">
+        <h2>CLEAR Collection Pipeline </h2>
+        <div style="text-align: center">
+          <img src="img/zhiqiu_clip.png" height="200px" style="width:770px;height:200;margin-right: 46px">
+        </div>
+        <p>
+          Since it is non-trivial to download the entire YFCC100M dataset (over 10TB), we first download the metadata
+          files (50GB) and download a random subset of 7.8M images from it. Then we use the upload time to recreate the
+          temporal stream and split them into 11 segments of 0.7M images. Given a temporal segment of images and a list
+          of queries (found by text-prompt engineering in order to effectively retrieve the visual concepts of
+          interest), we use a pre-trained vision-language model CLIP to extract their respective L2-normalized image and
+          query features. We can measure how much an image is aligned to a particular query by computing the cosine
+          similiarity score (e.g., dot product) between the two features. For each query, we can rank all the images and
+          only retrieve the ones with highest scores. Finally, we hire MTurk workers to verify the retrieved images for
+          each class and remove sensitive images hidden in original YFCC100M collection.
+        </p>
+
+        <br>
+      </div>
 
 
       <div class="IID vs Streaming Protocols for CL">
-      <h2>IID vs Streaming Protocols for CL</h2>
-      <div style="text-align: center">
-        <img src="img/zhiqiu_streaming.png" height="170px" style="width:750px;height:50;margin-right: 46px">
+        <h2>IID vs Streaming Protocols for CL</h2>
+        <div style="text-align: center">
+          <img src="img/zhiqiu_streaming.png" height="170px" style="width:750px;height:50;margin-right: 46px">
+        </div>
+        <p>
+          Traditional CL protocols (left) split incoming data buckets
+          into a <b>train/test split</b>, typically 70/30%. However, this may overestimate performance since the train
+          and test
+          data are drawn from the same iid distribution, ignoring the train-test domain gap. We advocate a streaming
+          protocol (right) where one must always evaluate on near-future data. This allows us to repurpose today’s
+          testset
+          as tomorrow’s trainset, increasing the total amount of recent data available for both training and testing.
+          Note
+          that the streaming protocol naturally allows for asynchronous training and testing; by the end of year 2006,
+          one
+          can train a model on data up to 2006, but needs additional data from 2007 to test it.
+        </p>
+
+        <br>
       </div>
-      <p>
-        Traditional CL protocols (left) split incoming data buckets
-        into a <b>train/test split</b>, typically 70/30%. However, this may overestimate performance since the train and test
-        data are drawn from the same iid distribution, ignoring the train-test domain gap. We advocate a streaming
-        protocol (right) where one must always evaluate on near-future data. This allows us to repurpose today’s testset
-        as tomorrow’s trainset, increasing the total amount of recent data available for both training and testing. Note
-        that the streaming protocol naturally allows for asynchronous training and testing; by the end of year 2006, one
-        can train a model on data up to 2006, but needs additional data from 2007 to test it.
-      </p>
-      
-    <br>
-    </div>
 
 
-    <div class="Streaming Protocols for Continual Supervised vs. Un-/Semi-supervised Learning">
-      <h2>Streaming Protocols for Continual Supervised vs. Un-/Semi-supervised Learning</h2>
-      <div style="text-align: center">
-        <img src="img/streaming_unsupervised.png" height="150px" style="width:800px;height:50;margin-right: 46px">
+      <div class="Streaming Protocols for Continual Supervised vs. Un-/Semi-supervised Learning">
+        <h2>Streaming Protocols for Continual Supervised vs. Un-/Semi-supervised Learning</h2>
+        <div style="text-align: center">
+          <img src="img/streaming_unsupervised.png" height="150px" style="width:800px;height:50;margin-right: 46px">
+        </div>
+        <p>
+          We compare streaming protocols for continual supervised (left) and un-/semi-supervised learning (right). In
+          real world,
+          most incoming data will not be labeled due to the annotation cost; it is more natural to assume a small
+          labeled
+          subset along with large-scale unlabeled samples per time period. In this work, we achieve great performance
+          boosts by only utilizing unlabeled samples in the first time period (bucket 0
+          th) for a self-supervised pre-training
+          step. Therefore, we encourage future works to embrace unlabeled samples in later buckets for continual
+          semi-supervised learning.
+        </p>
+
+        <br>
       </div>
-      <p>
-        We compare streaming protocols for continual supervised (left) and un-/semi-supervised learning (right). In real world,
-        most incoming data will not be labeled due to the annotation cost; it is more natural to assume a small labeled
-        subset along with large-scale unlabeled samples per time period. In this work, we achieve great performance
-        boosts by only utilizing unlabeled samples in the first time period (bucket 0
-        th) for a self-supervised pre-training
-        step. Therefore, we encourage future works to embrace unlabeled samples in later buckets for continual
-        semi-supervised learning.
-      </p>
-      
-    <br>
-    </div>
 
-    <div class="Workshop and Competition Information">
-      <h2>Workshop and Competition Information</h2>
-      <p>
-        CLEAR will be hosted on <a href="http://www.cs.cmu.edu/~shuk/vplow.html"><strong> Visual Perception and Learning in an Open World workshop </strong></a><b>(CVPR2022)</b> as a challenge track. Please checkout the compeition website on <a href="https://www.aicrowd.com/challenges/cvpr-2022-clear-challenge"><strong> CVPR2022 CLEAR challenge </strong></a>There is also a $1500 cash prize for the competition!
-      </p>
-    </div>
+      <div class="Workshop and Competition Information">
+        <h2>Workshop and Competition Information</h2>
+        <p>
+          We hosted a CLEAR-10/CLEAR-100 challenge on <a href="http://www.cs.cmu.edu/~shuk/vplow.html"><strong>2nd Open
+              World Vision workshop </strong></a><b>(CVPR2022)</b>. A summary of the challenge in <a
+            href="https://linzhiqiu.github.io/papers/clear/clear_cvpr.pdf">our slidesdeck</a>!</p>
+      </div>
 
-    <div class="citing section">
-      <h2>Citing this work</h2>
-      <p>If you find this work useful in your research, please consider citing:</p>
-      <pre>@inproceedings{lin2021clear,
+      <div class="citing section">
+        <h2>Citing this work</h2>
+        <p>If you find this work useful in your research, please consider citing:</p>
+        <pre>@inproceedings{lin2021clear,
           title={The CLEAR Benchmark: Continual LEArning on Real-World Imagery},
           author={Lin, Zhiqiu and Shi, Jia and Pathak, Deepak and Ramanan, Deva},
           booktitle={Thirty-fifth Conference on Neural Information Processing Systems Datasets and Benchmarks Track},
           year={2021}}
       </pre>
+      </div>
+      <br>
+      <div class="License">
+        <h2>License</h2>
+        This project is under
+        <a href="https://creativecommons.org/licenses/by/4.0/"><strong>CC BY</strong></a>
+        license
+      </div>
+
+      <div class="acknowledgements section">
+        <h2>Acknowledgements</h2>
+        <p>This research was supported by <a href="https://labs.ri.cmu.edu/argo-ai-center/"><strong>CMU Argo AI Center
+              for Autonomous Vehicle Research.</strong></a></p>
+      </div>
+
+
+
+
     </div>
-    <br>
-    <div class="License">
-      <h2>License</h2>
-      This project is under
-      <a href="https://creativecommons.org/licenses/by/4.0/"><strong>CC BY</strong></a>
-      license
-    </div>
-
-    <div class="acknowledgements section">
-      <h2>Acknowledgements</h2>
-      <p>This research was supported by <a href="https://labs.ri.cmu.edu/argo-ai-center/"><strong>CMU Argo AI Center for Autonomous Vehicle Research.</strong></a></p>
-    </div>
-
-
-      
-
   </div>
-</div>
 </body>
+
 </html>
